@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
 // Create axios instance with default config
 const api: AxiosInstance = axios.create({
-    baseURL: 'https://sandbox-api.okto.tech',
+    baseURL: 'https://sandbox-api.okto.tech/',
     headers: {
         'Content-Type': 'application/json'
     },
@@ -39,16 +39,32 @@ interface ContractTemplate {
  * @returns Wallet creation response
  */
 const createWallet = async (auth_token: string): Promise<any> => {
+    console.log("Api Request", auth_token);
+
     try {
-        const response: AxiosResponse<any> = await api.post('/api/v1/wallet', {
-            auth_token
+        const response: AxiosResponse<any> = await axios.post('https://sandbox-api.okto.tech/api/v1/wallet', {}, {
+            headers: {
+                'Authorization': `Bearer ${auth_token}`
+            }
         });
+        console.log("Wallet creation successful:", response.data);
         return response.data;
     } catch (error) {
         throw new Error('Failed to create wallet');
     }
 }
 
+const getWallet = async (auth_token: string): Promise<any> => {
+    try {
+        const response: AxiosResponse<any> = await axios.get('https://sandbox-api.okto.tech/api/v1/wallet', {
+            headers: {
+                'Authorization': `Bearer ${auth_token}`
+            }
+        });
+    } catch (error) {
+        throw new Error('Failed to get wallet');
+    }
+}
 /**
  * Gets user details
  * @returns User details
@@ -79,9 +95,13 @@ const templateContract = async (): Promise<ContractTemplate> => {
  * Gets wallet details
  * @returns Wallet details
  */
-const getWalletDetails = async (): Promise<any> => {
+const getWalletDetails = async (authToken: string | null): Promise<any> => {
     try {
-        const response: AxiosResponse<any> = await api.get('/api/v1/wallet');
+        const response: AxiosResponse<any> = await api.get('/api/v1/wallet', {
+            headers: {
+                'Authorization': `Bearer ${authToken}`
+            }
+        });
         return response.data;
     } catch (error) {
         throw new Error('Failed to get wallet details');

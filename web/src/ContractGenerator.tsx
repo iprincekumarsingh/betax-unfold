@@ -1541,16 +1541,16 @@ contract ${name} is ERC1155, Ownable {
   };
 
   return (
-    <div className="p-8 max-w-7xl mx-auto bg-gray-900">
-      <div className="flex gap-8">
+    <div className="p-4 md:p-8 max-w-7xl mx-auto bg-gray-900">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-8">
         {/* Form Section */}
-        <div className="w-1/2 space-y-6">
-          <div className="bg-gray-800 p-8 rounded-xl shadow-xl border border-gray-700">
-            <h2 className="text-2xl font-semibold text-white mb-6">Create New Contract</h2>
+        <div className="w-full lg:w-1/2 space-y-6">
+          <div className="bg-gray-800 p-4 md:p-8 rounded-xl shadow-xl border border-gray-700">
+            <h2 className="text-xl md:text-2xl font-semibold text-white mb-6">Create New Contract</h2>
             
-            <div className="flex flex-wrap gap-3 mb-6">
+            <div className="flex flex-wrap gap-2 md:gap-3 mb-6">
               <button
-                className={`px-6 py-2.5 rounded-lg font-medium transition-all duration-200 ${
+                className={`px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-lg font-medium transition-all duration-200 ${
                   contractType === "ERC20" 
                     ? "bg-purple-600 text-white shadow-lg shadow-purple-900"
                     : "bg-gray-700 text-gray-300 hover:bg-gray-600 border border-gray-600"
@@ -1560,7 +1560,7 @@ contract ${name} is ERC1155, Ownable {
                 ERC20 Token
               </button>
               <button 
-                className={`px-6 py-2.5 rounded-lg font-medium transition-all duration-200 ${
+                className={`px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-lg font-medium transition-all duration-200 ${
                   contractType === "ERC721"
                     ? "bg-purple-600 text-white shadow-lg shadow-purple-900" 
                     : "bg-gray-700 text-gray-300 hover:bg-gray-600 border border-gray-600"
@@ -1570,7 +1570,7 @@ contract ${name} is ERC1155, Ownable {
                 ERC721 NFT
               </button>
               <button
-                className={`px-6 py-2.5 rounded-lg font-medium transition-all duration-200 ${
+                className={`px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-lg font-medium transition-all duration-200 ${
                   contractType === "ERC1155"
                     ? "bg-purple-600 text-white shadow-lg shadow-purple-900"
                     : "bg-gray-700 text-gray-300 hover:bg-gray-600 border border-gray-600"
@@ -1585,7 +1585,7 @@ contract ${name} is ERC1155, Ownable {
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-1">Contract Name</label>
                 <input
-                  className="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white"
+                  className="w-full p-2.5 md:p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white"
                   placeholder="Enter contract name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -1595,7 +1595,7 @@ contract ${name} is ERC1155, Ownable {
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-1">Token Symbol</label>
                 <input
-                  className="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white"
+                  className="w-full p-2.5 md:p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white"
                   placeholder="Enter token symbol"
                   value={symbol}
                   onChange={(e) => setSymbol(e.target.value)}
@@ -1607,7 +1607,7 @@ contract ${name} is ERC1155, Ownable {
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-1">Initial Supply</label>
                     <input
-                      className="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white"
+                      className="w-full p-2.5 md:p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white"
                       placeholder="Enter initial supply"
                       value={initialSupply}
                       onChange={(e) => setInitialSupply(e.target.value)}
@@ -1616,7 +1616,7 @@ contract ${name} is ERC1155, Ownable {
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-1">Decimals</label>
                     <input
-                      className="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white"
+                      className="w-full p-2.5 md:p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white"
                       placeholder="Enter decimals"
                       value={decimals}
                       onChange={(e) => setDecimals(e.target.value)}
@@ -1626,7 +1626,7 @@ contract ${name} is ERC1155, Ownable {
               )}
 
               <button
-                className="mt-6 w-full bg-purple-600 text-white p-4 rounded-lg font-medium hover:bg-purple-700 transition-all duration-200 focus:ring-4 focus:ring-purple-900 shadow-lg shadow-purple-900/50"
+                className="mt-6 w-full bg-purple-600 text-white p-3 md:p-4 rounded-lg font-medium hover:bg-purple-700 transition-all duration-200 focus:ring-4 focus:ring-purple-900 shadow-lg shadow-purple-900/50"
                 onClick={generateContract}
               >
                 Generate Contract
@@ -1635,11 +1635,11 @@ contract ${name} is ERC1155, Ownable {
           </div>
 
           {deployedAddress && (
-            <div className="bg-gray-800 p-6 rounded-xl shadow-xl border border-gray-700">
-              <h3 className="text-xl font-semibold text-white mb-4">
+            <div className="bg-gray-800 p-4 md:p-6 rounded-xl shadow-xl border border-gray-700">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 Deployed Contract Address
               </h3>
-              <div className="p-4 bg-gray-700 rounded-lg border border-gray-600 font-mono text-sm break-all text-gray-300">
+              <div className="p-3 md:p-4 bg-gray-700 rounded-lg border border-gray-600 font-mono text-sm break-all text-gray-300">
                 {deployedAddress}
               </div>
               <p className="mt-3 text-sm text-gray-400">
@@ -1651,24 +1651,24 @@ contract ${name} is ERC1155, Ownable {
 
         {/* Generated Contract Section */}
         {generatedContract && (
-          <div className="w-full bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-semibold text-white">
+          <div className="w-full lg:w-1/2 bg-gray-800 p-4 md:p-6 rounded-lg shadow-xl border border-gray-700">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white">
                 Generated Contract Code
               </h3>
               <button
-                className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-emerald-700 transition-colors focus:ring-4 focus:ring-emerald-900"
+                className="w-full sm:w-auto bg-emerald-600 text-white px-4 md:px-6 py-2 rounded-lg font-medium hover:bg-emerald-700 transition-colors focus:ring-4 focus:ring-emerald-900"
                 onClick={deployContract}
               >
                 Deploy Contract
               </button>
             </div>
             <div className="relative">
-              <textarea
-                className="w-full h-[600px] p-4 border border-gray-600 rounded-lg font-mono text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-gray-300"
-                value={generatedContract}
-                readOnly
-              ></textarea>
+              <pre className="w-full h-[300px] md:h-[600px] p-3 md:p-4 border border-gray-600 rounded-lg font-mono text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-gray-300 overflow-auto">
+                <code>
+                  {generatedContract}
+                </code>
+              </pre>
             </div>
           </div>
         )}

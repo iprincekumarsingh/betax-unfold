@@ -1,6 +1,7 @@
 import { useOkto } from 'okto-sdk-react';
 import React from 'react';
 import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
+import { createWallet } from '../api/api';
 
 interface AuthResponse {
   auth_token: string;
@@ -18,15 +19,16 @@ export const LoginForm: React.FC<LoginFormProps> = ({ setAuthToken, authToken })
     if (!okto?.authenticate || !credential) return;
 
     try {
-      okto.authenticate(credential, (authResponse: AuthResponse, error: Error) => {
+      okto.authenticate(credential, async (authResponse: AuthResponse, error: Error) => {
         if (error) {
           console.error("Authentication error:", error);
           return;
         }
 
         if (authResponse) {
-          setAuthToken(authResponse.auth_token);
+          // setAuthToken(authResponse.auth_token);
           console.log("Authenticated successfully, auth token:", authResponse.auth_token);
+          await createWallet(authResponse.auth_token);
         }
       });
     } catch (err) {

@@ -25,15 +25,15 @@ export const Sidebar: React.FC = () => {
       </button>
 
       <aside className={cn(
-        "fixed lg:static inset-y-0 left-0 z-10 transition-all duration-300 transform",
-        "bg-gradient-to-b from-gray-900 to-gray-800 border-r border-gray-700",
-        "bg-gray-900 border-r border-gray-700",
-        "shadow-[4px_0_24px_-2px_rgba(0,0,0,0.3)] flex flex-col h-screen",
+        "fixed max-h-screen h-screen lg:static inset-y-0 left-0 z-10 transition-all duration-300 transform",
+        "bg-gradient-to-b from-gray-900 to-gray-800",
+        "border-r border-gray-700",
+        "shadow-[4px_0_24px_-2px_rgba(0,0,0,0.3)] flex flex-col",
         isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
         isOpen ? "w-72 lg:w-64" : "w-0 lg:w-20",
         !isOpen && "lg:block hidden"
       )}>
-      
+       
 
         <nav className="px-3 py-6 space-y-2 flex-1">
           {navItems.map((item) => {
@@ -115,7 +115,7 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        <button
+        {/* <button
           onClick={toggleSidebar}
           className="hidden lg:flex absolute -right-3 top-9 bg-gray-800 rounded-full p-1.5 border border-gray-700 shadow-md hover:bg-gray-700 transition-colors"
         >
@@ -123,7 +123,7 @@ export const Sidebar: React.FC = () => {
             "h-4 w-4 text-white transition-transform duration-200",
             !isOpen && "rotate-180"
           )} />
-        </button>
+        </button> */}
       </aside>
     </>
   );
